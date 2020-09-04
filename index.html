@@ -43,7 +43,12 @@
       <input type="checkbox" value="recordarme"> Recordarme
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="Registro()">Iniciar sesión</button>
 </form>
+<script>
+  function Registro(){
+    let usuario = document.getElementById("inputEmail").value;
+    localStorage.setItem("user", usuario)}
+    </script>
 </body>
 </html>
