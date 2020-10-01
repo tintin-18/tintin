@@ -39,6 +39,10 @@ var getJSONData = function(url){
         return result;
     });
 }
+function cerrarSesion(){
+  sessionStorage.removeItem("saved_user");
+  window.location.replace("index.html");
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

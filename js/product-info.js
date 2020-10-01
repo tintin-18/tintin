@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCategoryHTML = document.getElementById("productCategory");
             let productImagesHTML = document.getElementById("productImages");
         
+        
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productCostHTML.innerHTML = product.cost;
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             productSoldCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
             productImagesHTML.innerHTML = product.Images;
+            showrelatedproducts([1,3]);
 
 
             //Muestro las imagenes en forma de galería
@@ -84,4 +86,42 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+
+function showrelatedproducts(array){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            listproduct=resultObj.data;
+            htmlContentToAppend = "";
+            for (let i = 0; i < array.length;i++){ 
+                let category = listproduct[array[i]];  
+htmlContentToAppend += `
+                <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ category.name +`</h4>
+                            <small class="text-muted">` + category.soldCount + ` artículos</small>
+                        </div>
+                        <div>
+                        <p>`+category.description+`</p>
+                        </div>
+                        <div>
+                        <h4>`+category.currency+" "+category.cost+`</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+                }
+                let productrelatedProductsHTML = document.getElementById("relatedProducts");
+                productrelatedProductsHTML.innerHTML = htmlContentToAppend;
+    
+        }
+        
+    });
+
+}
 
