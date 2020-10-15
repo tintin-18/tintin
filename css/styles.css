@@ -139,3 +139,12 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+table, th, td {
+  
+  border: 1px solid black;
+}
+table{
+  margin: 0 auto;
+
+}
