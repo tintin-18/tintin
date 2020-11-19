@@ -38,8 +38,42 @@ var subtotal1=preciodearticulo*cantidaddearticulo;
     subT = this.value
 
     subtotalarticle();
-
+document.getElementById("productCostText").innerHTML = 100 * num
 });
+
+
+document.getElementById("goldradio").addEventListener("click", function () {
+var porcentaje = document.getElementById("goldradio").value;
+
+    impSubtotal = document.getElementById("sub-total").innerText;
+    document.getElementById("comissionText").innerHTML = porcentaje * impSubtotal
+    actualizarcostototal ()});
+    
+document.getElementById("premiumradio").addEventListener("click", function () {
+        var porcentaje = document.getElementById("premiumradio").value;
+        
+            impSubtotal = document.getElementById("sub-total").innerText;
+            document.getElementById("comissionText").innerHTML = porcentaje * impSubtotal
+            actualizarcostototal ()});
+            
+document.getElementById("standardradio").addEventListener("click", function () {
+                var porcentaje = document.getElementById("standardradio").value;
+                
+                    impSubtotal = document.getElementById("sub-total").innerText;
+                    document.getElementById("comissionText").innerHTML = porcentaje * impSubtotal
+                    actualizarcostototal ()});
+                    
+                    
+                    
+                    
+function actualizarcostototal () {                    
+var subtotal2 = document.getElementById("sub-total").innerText;
+var porcentaje2 = document.getElementById("comissionText").innerText;
+                    
+document.getElementById("totalCostText").innerHTML = subtotal2 * 1 + porcentaje2 * 1
+
+
+};
 
 
 
@@ -60,3 +94,30 @@ function showcartinfo(array) {
                        
                 `
     document.getElementById("cart-articles").innerHTML = htmlContentToAppend;}}
+
+function confirmacion(){
+    let faltantes = 0
+    
+    if(document.getElementById("productName1").value == ""){
+        alert("Debe completar el campo de Calle");
+        faltantes ++
+    } 
+    if(document.getElementById("productName2").value == ""){
+        alert("Debe completar el campo de Numero");
+        faltantes ++
+    }
+    if(document.getElementById("productName3").value == ""){
+        alert("Debe completar el campo de Esquina");
+        faltantes ++
+    }
+    if(document.getElementById("facturacion").value == ""){
+        alert("Debe completar el campo de ID de Facturacion");
+        faltantes ++
+    }
+
+    if (faltantes == 0) {
+        document.getElementById("mensajefinal").innerHTML = "Felicidades por tu compra"}
+    else {
+        document.getElementById("mensajefinal").innerHTML = "Debe completar toda la información"
+    }
+}

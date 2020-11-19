@@ -82,7 +82,194 @@
           </table>
         </div>
     </main>
+
+    <h4 class="mb-3">Dirección de envío.</h4>
+    <form class="needs-validation" id="cart-info">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="productName">Calle</label>
+          <input type="text" class="form-control" id="productName1" placeholder="" value="" >
+          <div class="invalid-feedback">
+            Ingresa la calle
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="productName">Numero</label>
+          <input type="text" class="form-control" id="productName2" placeholder="" value="" >
+          <div class="invalid-feedback">
+            Ingresa un numero
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="productName">Esquina</label>
+          <input type="text" class="form-control" id="productName3" placeholder="" value="" >
+          <div class="invalid-feedback">
+            Ingresa la calle de la esquina
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 order-md-1">
+
+
+    <h5 class="mb-3">Tipo de envio</h5>
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="goldradio" name="publicationType" type="radio" value="0.15" class="custom-control-input" checked="" required="">
+        <label class="custom-control-label" for="goldradio">Premium 2 a 5 días (15%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="premiumradio" name="publicationType" type="radio" value="0.07" class="custom-control-input" required="">
+        <label class="custom-control-label" for="premiumradio">Express 5 a 8 días (7%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="standardradio" name="publicationType" type="radio" value="0.05" class="custom-control-input" required="">
+        <label class="custom-control-label" for="standardradio">Estándar 12 a 15 días (5%)</label>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <h4 class="mb-3">Costos</h4>
+    <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            <small class="text-muted">Unitario del producto</small>
+          </div>
+          <span class="text-muted" id="productCostText">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Costo de envio</h6>
+            <small class="text-muted">Según el tipo de envio</small>
+          </div>
+          <span class="text-muted" id="comissionText">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total ($)</span>
+          <strong id="totalCostText">-</strong>
+        </li>
+      </ul>
+
+    
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" onclick="confirmacion()">
+  Confirmar Compra
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar compra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="mensajefinal">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"> Confirmar</button>
+      </div>
+    </div>
   </div>
+</div>
+      <!-- Button trigger modal -->
+<button type="button"  data-toggle="modal" data-target="#exampleModal">
+  Medio de pago
+</button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Metodo de Pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="../form-result.php" target="_blank">
+          <p>ID de Facturación: <input type="text" name="Facturación" id="facturacion" required></p>
+          <p>
+
+            <div class="container py-5">
+              <!-- For demo purpose -->
+              <div class="row mb-4">
+                  <div class="col-lg-8 mx-auto text-center">
+                      <h1 class="display-4"></h1>
+                  </div>
+              </div> <!-- End -->
+              <div class="row">
+                  <div class="col-lg-6 mx-auto">
+                      <div class="card ">
+                          <div class="card-header">
+                              <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                                  <!-- Credit card form tabs -->
+                                  <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                                      <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Tarjeta de Débito </a> </li>
+                                      <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i> Transferencia Bancaria </a> </li>
+                                  </ul>
+                              </div> <!-- End -->
+                              <!-- Credit card form content -->
+                              <div class="tab-content">
+                                  <!-- credit card info-->
+                                  <div id="credit-card" class="tab-pane fade show active pt-3">
+                                      <form role="form" >
+                                          <div class="form-group"> <label for="username">
+                                                  <h6>Nombre del Titular</h6>
+                                              </label> <input type="text" name="username"  required class="form-control " > </div>
+                                          <div class="form-group"> <label for="cardNumber">
+                                                  <h6>Numero de tarjeta</h6>
+                                              </label>
+                                              <div class="input-group"> <input type="text" name="cardNumber"  class="form-control " required>
+                                                  <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-8">
+                                                  <div class="form-group"> <label><span class="hidden-xs">
+                                                              <h6>Fecha de expiración.</h6>
+                                                          </span></label>
+                                                      <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                          <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                                      </label> <input type="text" required class="form-control"> </div>
+                                              </div>
+                                          </div>
+                                          <div class="card-footer"> <button id= "confirmarpago" type="submit" class="btn btn-primary" data-dismiss="modal"> Confirmar medio de Pago </button>
+                                      </form>
+                                  </div>
+                              </div> <!-- End -->
+                              <!-- Paypal info -->
+                              <div id="paypal" class="tab-pane fade pt-3">
+                                  <h6 class="pb-2">Seleccionar tu cuenta</h6>
+                                  <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Nacional </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">Internacional </label></div>
+                                  <p> <button type="submit" class="btn btn-primary " data-dismiss="modal"><i class="fab fa-paypal mr-2"> </i> Confirmar</button> </p>
+                              </div> <!-- End -->
+                              
+                              <!-- End -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -96,7 +283,6 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
-
 </body>
 
 </html>
