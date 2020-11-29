@@ -51,17 +51,34 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <form>
+      <div class="form-row col-md-6">
+        <div class="form-group">
+          <label for="inputName">Nombre</label>
+          <input type="text" class="form-control" id="inputName" >
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputLastname">Apellido</label>
+          <input type="text" class="form-control" id="inputLastname">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4">
+        </div>      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputAge">Edad</label>
+          <input type="text" class="form-control" id="inputAge">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-">
+          <label for="inputPhone">Telefono de contacto</label>
+          <input type="text" class="form-control" id="inputPhone">
+        </div>
+      </div>
+      <botton class="btn btn-secondary col-md-8" type="button" onclick="guardar()" >Guardar Datos</botton> 
+    </form>
     </div>
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
