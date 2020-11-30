@@ -1,6 +1,7 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+//(Invoca al JSON y muestra la informacion de los articulos)
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -17,12 +18,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             cantidaddearticulo.innerHTML= cartinfo.count;
             monedadearticulo.innerHTML= cartinfo.currency;
 
-            //Muestro las imagenes en forma de galería
             showcartinfo(cartinfo.articles);
         }
     });
 });
 
+
+//Funcion que define el subtotal multiplicando el precio por la cantidad.
 function subtotalarticle(preciodearticulo, cantidaddearticulo){
 var subtotal1=preciodearticulo*cantidaddearticulo;
 
@@ -41,7 +43,7 @@ var subtotal1=preciodearticulo*cantidaddearticulo;
 document.getElementById("productCostText").innerHTML = 100 * num
 });
 
-
+//funcion que calcula el costo de envio según el tipo
 document.getElementById("goldradio").addEventListener("click", function () {
 var porcentaje = document.getElementById("goldradio").value;
 
@@ -65,7 +67,7 @@ document.getElementById("standardradio").addEventListener("click", function () {
                     
                     
                     
-                    
+//funcion que calcula el costo total de la compra.                    
 function actualizarcostototal () {                    
 var subtotal2 = document.getElementById("sub-total").innerText;
 var porcentaje2 = document.getElementById("comissionText").innerText;
@@ -74,10 +76,7 @@ document.getElementById("totalCostText").innerHTML = subtotal2 * 1 + porcentaje2
 
 
 };
-
-
-
-
+//Funcion que inserta un html con la informacion de un articulo cuando se solicita.
 function showcartinfo(array) {
     let htmlContentToAppend = "";
 
@@ -95,6 +94,8 @@ function showcartinfo(array) {
                 `
     document.getElementById("cart-articles").innerHTML = htmlContentToAppend;}}
 
+//Funcion que confirma si el valor de campo esta completo
+//y que no falta ninguno por completar.
 function confirmacion(){
     let faltantes = 0
     
